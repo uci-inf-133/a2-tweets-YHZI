@@ -35,7 +35,11 @@ function parseTweets(runkeeper_tweets) {
 	const pct = (n) => (n * 100 / total).toFixed(2) + '%';
 
 	// Update category spans (some classes appear more than once)
-	const setAll = (selector, value) => document.querySelectorAll(selector).forEach(el => el.innerText = String(value));
+	// DOM update 
+	function setAll(selector, value) {
+  		const elements = document.querySelectorAll(selector);
+  		elements.forEach(function(el) { el.innerText = String(value); });
+	}
 	setAll('.completedEvents', completed);
 	setAll('.completedEventsPct', pct(completed));
 	setAll('.liveEvents', live);

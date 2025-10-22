@@ -127,6 +127,7 @@ function parseTweets(runkeeper_tweets) {
 		}
 		return Array.from(m, ([activity, {sum, n}]) => ({activity, avg: n ? sum/n : 0}));
 	}
+	
 	const avgs = avgByActivity(top3Data).sort((a,b)=>b.avg-a.avg);
 	if (avgs.length) {
 		document.getElementById('longestActivityType').innerText = avgs[0].activity;
